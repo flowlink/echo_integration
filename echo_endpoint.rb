@@ -8,7 +8,10 @@ class EchoEndpoint < EndpointBase
   end
 
   post '/echo' do
-    process_result 200, @message[:payload]
+    echo = @message[:payload]
+    echo[:message_id] = @message[:message_id]
+
+    process_result 200, echo
   end
 
   post '/fail' do
