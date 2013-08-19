@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:spree/endpoint_base.git
-  revision: 66d94e3e108075161a73f05490782bb4891ae364
+  revision: 4b25ae94bb8385f7230d26da6a11c08554dba448
   specs:
     endpoint_base (2.0)
       activesupport
@@ -17,7 +17,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    atomic (1.1.12)
+    atomic (1.1.13)
     backports (3.3.3)
     capistrano (2.15.5)
       highline
