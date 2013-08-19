@@ -10,6 +10,7 @@ class EchoEndpoint < EndpointBase
   post '/echo' do
     echo = @message[:payload]
     echo[:message_id] = @message[:message_id]
+    echo.delete :parameters
 
     process_result 200, echo
   end
