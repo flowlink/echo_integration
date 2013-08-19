@@ -7,7 +7,7 @@
         {
             "name": "received",
             "path": "/",
-            "description": "Echo's received message in 'recieved' key of response, with a HTTP 200 response code.",
+            "description": "Echo's received message's payload in 'recieved' key of response, with a HTTP 200 response code.",
             "requires": {
                 "parameters": []
             }
@@ -15,7 +15,7 @@
         {
             "name": "echo",
             "path": "/echo",
-            "description": "Echo the exact message received.",
+            "description": "Echo the exact message payload received.",
             "requires": {
                 "parameters": []
             }
@@ -23,7 +23,7 @@
         {
             "name": "fail",
             "path": "/fail",
-            "description": "Echo's received message in 'recieved' key of response, with a HTTP 500 response code.",
+            "description": "Echo's received message's payload in 'recieved' key of response, with a HTTP 500 response code.",
             "requires": {
                 "parameters": []
             }
