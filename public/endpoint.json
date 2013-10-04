@@ -3,6 +3,7 @@
     "display": "Echo Test Endpoint",
     "description": "Testing endpoint",
     "help": "http://guides.spreecommerce.com/integration/endpoints/echo",
+    "icon_url": "spree.png",
     "services": [
         {
             "name": "received",
