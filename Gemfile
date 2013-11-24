@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'capistrano'
-
 group :development do
   gem 'shotgun'
 end
