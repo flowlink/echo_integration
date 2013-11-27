@@ -1,36 +1,30 @@
-GIT
-  remote: git@github.com:spree/endpoint_base.git
-  revision: 4b25ae94bb8385f7230d26da6a11c08554dba448
-  specs:
-    endpoint_base (2.0)
-      activesupport
-      json
-      sinatra (= 1.4.3)
-      sinatra-contrib
-
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.0.0)
+    activesupport (4.0.1)
       i18n (~> 0.6, >= 0.6.4)
       minitest (~> 4.2)
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    atomic (1.1.13)
-    backports (3.3.3)
+    atomic (1.1.14)
+    backports (3.3.5)
     dotenv (0.8.0)
-    eventmachine (1.0.3)
+    endpoint_base (0.0.1)
+      activesupport
+      json
+      sinatra (= 1.4.3)
+      sinatra-contrib
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
     i18n (0.6.5)
-    json (1.8.0)
+    json (1.8.1)
     kgio (2.8.0)
     minitest (4.7.5)
-    multi_json (1.7.9)
+    multi_json (1.8.2)
     rack (1.5.2)
-    rack-protection (1.5.0)
+    rack-protection (1.5.1)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -41,18 +35,18 @@ GEM
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
-    sinatra-contrib (1.4.0)
+    sinatra-contrib (1.4.1)
       backports (>= 2.0)
-      eventmachine
+      multi_json
       rack-protection
       rack-test
-      sinatra (~> 1.4.2)
+      sinatra (~> 1.4.0)
       tilt (~> 1.3)
     thor (0.18.1)
-    thread_safe (0.1.2)
+    thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
-    tzinfo (0.3.37)
+    tzinfo (0.3.38)
     unicorn (4.6.3)
       kgio (~> 2.6)
       rack
@@ -62,7 +56,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  endpoint_base!
+  endpoint_base (= 0.0.1)
   foreman
   shotgun
   unicorn
