@@ -2,8 +2,9 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
   set :logging, true
 
   post '/' do
-    process_result 200, { message_id: @message[:message_id],
-                          received: @message[:payload] }
+    add_value :received, @message[:payload]
+
+    process_result 200
   end
 
   post '/echo' do
@@ -15,8 +16,7 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
   end
 
   post '/fail' do
-    process_result 500, { message_id: @message[:message_id],
-                          received: @message[:payload] }
+    process_result 500
   end
 end
 
