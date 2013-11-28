@@ -1,5 +1,4 @@
 class EchoEndpoint < EndpointBase
-
   set :logging, true
 
   post '/' do
@@ -20,3 +19,4 @@ class EchoEndpoint < EndpointBase
                           received: @message[:payload] }
   end
 end
+

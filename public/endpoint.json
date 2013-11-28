@@ -1,42 +1,42 @@
 {
+  "name": "echo",
+  "display": "Echo Test Endpoint",
+  "description": "Testing endpoint",
+  "help": "http://guides.spreecommerce.com/integration/endpoints/echo",
+  "icon_url": "spree.png",
+  "services": [
+  {
+    "name": "received",
+    "path": "/",
+    "description": "Echo's received message's payload in 'received' key of response, with a HTTP 200 response code.",
+    "requires": {
+      "parameters": []
+    },
+    "recommends": {
+      "messages": [ "echo:received" ]
+    }
+  },
+  {
     "name": "echo",
-    "display": "Echo Test Endpoint",
-    "description": "Testing endpoint",
-    "help": "http://guides.spreecommerce.com/integration/endpoints/echo",
-    "icon_url": "spree.png",
-    "services": [
-        {
-            "name": "received",
-            "path": "/",
-            "description": "Echo's received message's payload in 'received' key of response, with a HTTP 200 response code.",
-            "requires": {
-                "parameters": []
-            },
-            "recommends": {
-              "messages": [ "echo:received" ]
-            }
-        },
-        {
-            "name": "echo",
-            "path": "/echo",
-            "description": "Echo the exact message payload received.",
-            "requires": {
-                "parameters": []
-            },
-            "recommends": {
-              "messages": [ "echo:echo" ]
-            }
-        },
-        {
-            "name": "fail",
-            "path": "/fail",
-            "description": "Echo's received message's payload in 'received' key of response, with a HTTP 500 response code.",
-            "requires": {
-                "parameters": []
-            },
-            "recommends": {
-              "messages": [ "echo:fail" ]
-            }
-        }
-    ]
+    "path": "/echo",
+    "description": "Echo the exact message payload received.",
+    "requires": {
+      "parameters": []
+    },
+    "recommends": {
+      "messages": [ "echo:echo" ]
+    }
+  },
+  {
+    "name": "fail",
+    "path": "/fail",
+    "description": "Echo's received message's payload in 'received' key of response, with a HTTP 500 response code.",
+    "requires": {
+      "parameters": []
+    },
+    "recommends": {
+      "messages": [ "echo:fail" ]
+    }
+  }
+  ]
 }
