@@ -1,4 +1,4 @@
-class EchoEndpoint < EndpointBase
+class EchoEndpoint < EndpointBase::Sinatra::Base
   set :logging, true
 
   post '/' do
