@@ -1,5 +1,6 @@
-PATH
-  remote: ../endpoint_base
+GIT
+  remote: git://github.com/spree/endpoint_base.git
+  revision: fefcdcb520559534584945885ed8b7e28dffc437
   specs:
     endpoint_base (0.3)
       activesupport

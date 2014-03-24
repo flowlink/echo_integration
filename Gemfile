@@ -15,5 +15,5 @@ group :production do
   gem 'unicorn'
 end
 
-gem 'endpoint_base', #github: 'spree/endpoint_base'
-    path: '../endpoint_base'
+gem 'endpoint_base', github: 'spree/endpoint_base'
+    #path: '../endpoint_base'
