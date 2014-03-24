@@ -2,20 +2,18 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
   set :logging, true
 
   post '/' do
-    set_summary 'Echo Success Response'
-    process_result 200
+    result 200, 'Echo Success Response'
   end
 
-  # post '/echo' do
-  #   echo = @message[:payload]
-  #   echo[:message_id] = @message[:message_id]
-  #   echo.delete :parameters
+  post '/echo' do
+    @payload.each do |key, value|
+      add_value key, value
+    end
 
-  #   process_result 200, echo
-  # end
+    result 200
+  end
 
   post '/fail' do
-    set_summary 'Echo Fail Response'
-    process_result 500
+    result 500, 'Echo Fail Response'
   end
 end

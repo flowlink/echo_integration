@@ -7,6 +7,7 @@ gem 'tilt-jbuilder', require: 'sinatra/jbuilder'
 group :development do
   gem 'shotgun'
   gem 'pry'
+  gem 'byebug'
 end
 
 group :production do
@@ -14,5 +15,5 @@ group :production do
   gem 'unicorn'
 end
 
-# gem 'endpoint_base', git: 'git@github.com:spree/endpoint_base.git'
-gem 'endpoint_base', github: 'spree/endpoint_base'
+gem 'endpoint_base', #github: 'spree/endpoint_base'
+    path: '../endpoint_base'

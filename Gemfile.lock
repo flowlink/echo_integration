@@ -1,8 +1,7 @@
-GIT
-  remote: git://github.com/spree/endpoint_base.git
-  revision: a0f1a1f1db5a4db9a2ff8f944e80b5e2bfbf2115
+PATH
+  remote: ../endpoint_base
   specs:
-    endpoint_base (0.2)
+    endpoint_base (0.3)
       activesupport
       jbuilder
       json
@@ -17,7 +16,12 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     atomic (1.1.15)
+    byebug (2.7.0)
+      columnize (~> 0.3)
+      debugger-linecache (~> 1.2)
     coderay (1.1.0)
+    columnize (0.3.6)
+    debugger-linecache (1.2.0)
     dotenv (0.8.0)
     foreman (0.63.0)
       dotenv (>= 0.7)
@@ -63,6 +67,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug
   endpoint_base!
   foreman
   pry
