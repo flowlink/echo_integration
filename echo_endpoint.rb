@@ -40,4 +40,22 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
 
     result code, summary
   end
+
+  post '/get_objects' do
+    object_type = @config['object_type']
+    quantity    = @config['quantity'] || 1
+
+    if object_type.nil?
+      result 500, "You must send the 'object_type' parameter."
+    else
+
+      quantity.to_i.times do |i|
+        id = "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}-#{Time.now.hour}-#{i}"
+
+        add_object object_type.singularize, { id: id,
+                                              status: 'awesome' }
+      end
+      result 200, "Here are #{quantity} x '#{object_type}'"
+    end
+  end
 end
