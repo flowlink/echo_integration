@@ -58,4 +58,29 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
       result 200, "Here are #{quantity} x '#{object_type}'"
     end
   end
+
+  post '/set_attr' do
+    attribute = @config['attribute']
+    value     = @config['value']
+
+    @payload.each do |key, object|
+      next if %w{request_id parameters}.include? key
+
+      if object.is_a? Hash
+        if object.key? attribute
+
+          object['attribute'] = value
+          add_object key.to_sym, object
+          result 200, "Set #{key}'s '#{attribute}' attribute to '#{value}'"
+          break
+        else
+          result 500, "Object '#{key}' doesn't have a '#{attribute}' attribute"
+          break
+        end
+      else
+        result 500, "Object '#{key}' is not a hash."
+        break
+      end
+    end
+  end
 end
