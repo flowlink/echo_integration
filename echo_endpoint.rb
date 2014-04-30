@@ -60,8 +60,8 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
   end
 
   post '/set_attr' do
-    attribute = @config['attribute']
-    value     = @config['value']
+    attribute = @config['attribute'] || 'status'
+    value     = @config['value'] || 'shipped'
 
     @payload.each do |key, object|
       next if %w{request_id parameters}.include? key
