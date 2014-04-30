@@ -69,7 +69,7 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
       if object.is_a? Hash
         if object.key? attribute
 
-          object['attribute'] = value
+          object[attribute] = value
           add_object key.to_sym, object
           result 200, "Set #{key}'s '#{attribute}' attribute to '#{value}'"
           break
