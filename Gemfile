@@ -15,5 +15,10 @@ group :production do
   gem 'unicorn'
 end
 
+group :test do
+  gem 'rspec'
+  gem 'rack-test'
+end
+
 gem 'endpoint_base', github: 'spree/endpoint_base'
     #path: '../endpoint_base'
