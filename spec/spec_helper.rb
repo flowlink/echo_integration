@@ -4,6 +4,7 @@ require 'rspec'
 require 'rack/test'
 require 'sinatra'
 require 'endpoint_base'
+require 'pry-byebug'
 require './echo_endpoint'
 
 HUB_STORE        = '538641a050616242f0080000'

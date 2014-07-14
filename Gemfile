@@ -6,8 +6,7 @@ gem 'tilt-jbuilder', require: 'sinatra/jbuilder'
 
 group :development do
   gem 'shotgun'
-  gem 'pry'
-  gem 'byebug'
+  gem 'pry-byebug'
 end
 
 group :production do

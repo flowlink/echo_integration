@@ -83,4 +83,12 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
       end
     end
   end
+
+  post '/slow' do
+    if (delay = @payload['parameters'].to_h['delay'].to_i) > 0
+      sleep delay
+    end
+
+    result 200
+  end
 end
