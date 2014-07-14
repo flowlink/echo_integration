@@ -91,4 +91,8 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
 
     result 200
   end
+
+  post '/random' do
+    result [200, 500][rand(2)]
+  end
 end

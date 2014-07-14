@@ -29,4 +29,22 @@ describe EchoEndpoint do
       end
     end
   end
+
+  describe 'POST /random' do
+    it 'returns 200' do
+      allow_any_instance_of(described_class).to receive(:rand).with(2).and_return 0
+
+      wpost '/random'
+
+      expect(last_response).to be_ok
+    end
+
+    it 'returns 500' do
+      allow_any_instance_of(described_class).to receive(:rand).with(2).and_return 1
+
+      wpost '/random'
+
+      expect(last_response.status).to eq 500
+    end
+  end
 end
