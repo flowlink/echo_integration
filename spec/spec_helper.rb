@@ -16,7 +16,7 @@ module RequestHelper
 
   def app; described_class end
 
-  def json
+  def last_json
     @json ||= JSON.parse(last_response.body)
   end
 

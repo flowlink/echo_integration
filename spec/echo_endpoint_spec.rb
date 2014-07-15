@@ -6,7 +6,7 @@ describe EchoEndpoint do
       wpost '/'
 
       expect(last_response).to be_ok
-      expect(json).to eq('request_id' => REQUEST_ID, 'summary' => 'Echo Success Response')
+      expect(last_json).to eq('request_id' => REQUEST_ID, 'summary' => 'Echo Success Response')
     end
   end
 
@@ -53,7 +53,7 @@ describe EchoEndpoint do
       wpost '/get_objects', parameters: { object_type: 'bananas' }
 
       expect(last_response).to be_ok
-      expect(json).to include('request_id' => REQUEST_ID, 'summary' => "Here are 1 x 'bananas'")
+      expect(last_json).to include('request_id' => REQUEST_ID, 'summary' => "Here are 1 x 'bananas'")
     end
 
     context 'when object_type is absent' do
@@ -61,7 +61,7 @@ describe EchoEndpoint do
         wpost '/get_objects'
 
         expect(last_response.status).to eq 500
-        expect(json['summary']).to eq "You must send the 'object_type' parameter."
+        expect(last_json['summary']).to eq "You must send the 'object_type' parameter."
       end
     end
   end
