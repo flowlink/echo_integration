@@ -56,6 +56,8 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
         add_object object_type.singularize, object
       end
 
+      add_parameter 'last_updated_at', Time.now if last_updated_at
+
       result 200, "Here are #{quantity} x '#{object_type}'"
     end
   end
@@ -101,7 +103,7 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
     begin
       base = "Hub::Samples::#{object_type.singularize.titleize}".constantize.object[object_type]
       base = base.clone
-    rescue => e
+    rescue
       base = { 'status' => 'awesome' }
     end
 
@@ -110,5 +112,10 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
     base['id'] = id
 
     base
+  end
+
+  def last_updated_at
+    @last_updated_at ||= Time.parse(@config['last_updated_at'])
+  rescue
   end
 end

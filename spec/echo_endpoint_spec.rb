@@ -56,6 +56,19 @@ describe EchoEndpoint do
       expect(last_json).to include('request_id' => REQUEST_ID, 'summary' => "Here are 1 x 'banana'")
       expect(last_json['bananas'].size).to eq 1
       expect(last_json['bananas'][0]['status']).to eq 'awesome'
+      expect(last_json['parameters']).to be nil
+    end
+
+    it 'updates last_updated_at' do
+      now = Time.now
+      allow(Time).to receive(:now).and_return(now)
+      original_last_updated_at = now - 10.days
+
+      wpost '/get_objects', parameters: { object_type: 'banana', last_updated_at: original_last_updated_at }
+
+      expect(last_response).to be_ok
+      expect(last_json['parameters']['last_updated_at']).to eq now.to_s
+      expect(Time.parse(last_json['parameters']['last_updated_at'])).to be > original_last_updated_at
     end
 
     it 'returns orders' do
