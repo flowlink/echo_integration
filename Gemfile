@@ -21,3 +21,4 @@ end
 
 gem 'endpoint_base', github: 'spree/endpoint_base'
     # path: '../endpoint_base'
+gem 'hub_samples', github: 'spree/hub_samples'

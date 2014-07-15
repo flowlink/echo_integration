@@ -50,10 +50,25 @@ describe EchoEndpoint do
 
   describe 'POST /get_objects' do
     it 'returns bananas' do
-      wpost '/get_objects', parameters: { object_type: 'bananas' }
+      wpost '/get_objects', parameters: { object_type: 'banana' }
 
       expect(last_response).to be_ok
-      expect(last_json).to include('request_id' => REQUEST_ID, 'summary' => "Here are 1 x 'bananas'")
+      expect(last_json).to include('request_id' => REQUEST_ID, 'summary' => "Here are 1 x 'banana'")
+      expect(last_json['bananas'].size).to eq 1
+      expect(last_json['bananas'][0]['status']).to eq 'awesome'
+    end
+
+    it 'returns orders' do
+      allow(Hub::Samples::Order).to receive(:object).and_return('order' => { 'status' => 'super awesome' })
+
+      wpost '/get_objects', parameters: { object_type: 'order', quantity: 2 }
+
+      expect(last_response).to be_ok
+      expect(last_json).to include('request_id' => REQUEST_ID, 'summary' => "Here are 2 x 'order'")
+      expect(last_json['orders'].size).to eq 2
+      expect(last_json['orders'][0]['status']).to eq 'super awesome'
+      expect(last_json['orders'][1]['status']).to eq 'super awesome'
+      expect(last_json['orders'][0]['id']).to_not eq last_json['orders'][1]['id']
     end
 
     context 'when object_type is absent' do

@@ -1,11 +1,18 @@
 GIT
   remote: git://github.com/spree/endpoint_base.git
-  revision: cb1e32b47bd986bc95d82d2fcbab2b972dbf28b7
+  revision: 753a06af99c9c26fa54a98b53d5406509def1b58
   specs:
     endpoint_base (0.3)
       activesupport
       jbuilder
       json
+
+GIT
+  remote: git://github.com/spree/hub_samples.git
+  revision: 921eddb4fcbc954172dfbebccd4d88f1a43b7643
+  specs:
+    hub_samples (1.0)
+      bson_ext (>= 1.5.0)
 
 GEM
   remote: https://rubygems.org/
@@ -16,6 +23,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    bson (1.10.2)
+    bson_ext (1.10.2)
+      bson (~> 1.10.2)
     byebug (2.7.0)
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
@@ -87,6 +97,7 @@ PLATFORMS
 DEPENDENCIES
   endpoint_base!
   foreman
+  hub_samples!
   pry-byebug
   rack-test
   rspec
