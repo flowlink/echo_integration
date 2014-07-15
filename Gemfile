@@ -20,4 +20,4 @@ group :test do
 end
 
 gem 'endpoint_base', github: 'spree/endpoint_base'
-    #path: '../endpoint_base'
+    # path: '../endpoint_base'

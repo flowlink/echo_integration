@@ -48,13 +48,12 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
     if object_type.nil?
       result 500, "You must send the 'object_type' parameter."
     else
-
       quantity.to_i.times do |i|
         id = "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}-#{Time.now.hour}-#{i}"
 
-        add_object object_type.singularize, { id: id,
-                                              status: 'awesome' }
+        add_object object_type.singularize, { id: id, status: 'awesome' }
       end
+
       result 200, "Here are #{quantity} x '#{object_type}'"
     end
   end

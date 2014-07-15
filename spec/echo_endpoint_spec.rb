@@ -14,7 +14,7 @@ describe EchoEndpoint do
     it 'returns success' do
       expect_any_instance_of(described_class).to receive(:sleep).with(5)
 
-      wpost '/slow', 'parameters' => { 'delay' => 5 }
+      wpost '/slow', parameters: { delay: 5 }
 
       expect(last_response).to be_ok
     end
@@ -45,6 +45,24 @@ describe EchoEndpoint do
       wpost '/random'
 
       expect(last_response.status).to eq 500
+    end
+  end
+
+  describe 'POST /get_objects' do
+    it 'returns bananas' do
+      wpost '/get_objects', parameters: { object_type: 'bananas' }
+
+      expect(last_response).to be_ok
+      expect(json).to include('request_id' => REQUEST_ID, 'summary' => "Here are 1 x 'bananas'")
+    end
+
+    context 'when object_type is absent' do
+      it 'returns error' do
+        wpost '/get_objects'
+
+        expect(last_response.status).to eq 500
+        expect(json['summary']).to eq "You must send the 'object_type' parameter."
+      end
     end
   end
 end
