@@ -60,7 +60,7 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
         add_parameter 'last_updated_at', Time.now
         result 200, "Here are #{quantity} x '#{object_type}'. Last updated_at: #{last_updated_at}"
       else
-        result 200, "Here are #{quantity} x '#{object_type}'"
+        result 200, "Hey! Here are #{quantity} x '#{object_type}'"
       end
     end
   end
