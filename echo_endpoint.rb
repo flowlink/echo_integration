@@ -56,9 +56,12 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
         add_object object_type.singularize, object
       end
 
-      add_parameter 'last_updated_at', Time.now if last_updated_at
-
-      result 200, "Here are #{quantity} x '#{object_type}'"
+      if last_updated_at
+        add_parameter 'last_updated_at', Time.now
+        result 200, "Here are #{quantity} x '#{object_type}'. Last updated_at: #{last_updated_at}"
+      else
+        result 200, "Here are #{quantity} x '#{object_type}'"
+      end
     end
   end
 
