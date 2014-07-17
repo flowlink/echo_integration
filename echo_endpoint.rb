@@ -110,7 +110,8 @@ class EchoEndpoint < EndpointBase::Sinatra::Base
       base = { 'status' => 'awesome' }
     end
 
-    id = "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}-#{Time.now.hour}-#{index}"
+    # id = "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}-#{Time.now.hour}-#{index}"
+    id = "#{Time.now.utc.to_f}-#{index}"
 
     base['id'] = id
 
