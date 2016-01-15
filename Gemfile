@@ -19,6 +19,6 @@ group :test do
   gem 'rack-test'
 end
 
-gem 'endpoint_base', github: 'spree/endpoint_base'
+gem 'endpoint_base', github: 'flowlink/endpoint_base'
     # path: '../endpoint_base'
 gem 'hub_samples', github: 'spree/hub_samples'
